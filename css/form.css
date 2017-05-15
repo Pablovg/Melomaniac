@@ -1,0 +1,84 @@
+.card {
+    width: 280px;
+    height: 350px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(220, 220, 220);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.card h1 {
+    line-height: 100px;
+    font-weight: 100;
+    margin-bottom: 20px;
+    text-align: center;
+    color: rgb(129, 126, 126);
+    border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.card input[type=email], input[type=password] {
+    height: 40px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 10px;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+    padding: 0 8px;
+}
+
+.card input[type=email]:hover, input[type=password]:hover {
+    border: 1px solid #b9b9b9;
+    border-top: 1px solid #a0a0a0;
+}
+
+.card input[type=submit] {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    height: 36px;
+    padding: 0 8px;
+    color: #fff;
+    background-color: #4d90fe;
+    border: 0px;
+}
+
+.card input[type=submit]:hover {
+    background-color: #357ae8;
+}
+
+.help {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+}
+
+.help a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 400;
+    text-align: center;
+    display: inline-block;
+    opacity: 0.6;
+    transition: opacity ease 0.5s;
+}
+
+.help a:hover {
+    opacity: 1;
+}
+
+.help p {
+    color: #666;
+    font-weight: 400;
+    text-align: center;
+}

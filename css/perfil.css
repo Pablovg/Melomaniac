@@ -1,0 +1,49 @@
+.content {
+    max-width: 400px;
+    min-width: 296px;
+    height: 550px;
+    padding: 20px;
+    margin: 40px auto 0 auto;
+    background-color: white;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 5px;
+    z-index: -1;
+}
+
+.content img {
+    width: 150px;
+    height: 150px;
+    margin-left: 30%;
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid rgb(220, 220, 220);
+}
+
+.content .ajustes {
+    display: inline-block;
+    margin-left: -20px;
+    color: grey;
+}
+
+.content h1 {
+    text-align: center;
+    font-weight: 100;
+    padding: 20px 0;
+    color: rgb(129, 126, 126);
+    border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.content ul {
+    list-style: none;
+}
+
+.content ul li {
+    color: rgb(129, 126, 126);
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.content ul li i {
+    margin-right: 10px;
+}
