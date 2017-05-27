@@ -1,11 +1,11 @@
-<?php session_start();
-    include('connect.php');
+<?php
+    include('conectar.php');
 
     if (!empty($_REQUEST['correo']) && !empty($_REQUEST['contraseña']) && !empty($_REQUEST['confirmar_contraseña'])) {
         if ($_REQUEST['contraseña'] === $_REQUEST['confirmar_contraseña']) {
             $correo = $_REQUEST['correo'];
             $sql = "SELECT correo FROM usuarios WHERE correo='$correo'";
-            $resultado = $mysqli->query($sql);
+            $resultado = $mysqli->query($sql) or die($mysqli->error);
     	    $numRows = $resultado->num_rows;
 
             if ($numRows == 0 ) {
@@ -17,6 +17,8 @@
                 if ($mysqli->query($sql) !== TRUE) {
                     echo "Error: " . $sql . "<br>" . $mysqli->error;
                 }
+
+                $_SESSION['login'] = true;
     	    }
 
             else {
@@ -30,6 +32,6 @@
     }
 
     $mysqli->close();
-    header("Location: inicio.php");
+    header("Location: ../Vistas/configuracion.php");
     exit;
 ?>
