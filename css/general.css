@@ -11,6 +11,13 @@ body {
     background-image: url("../img/BG/fondo8.gif");
 }
 
+.container {
+    min-width: 296px;
+    max-width: 700px;
+    padding-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /*---------- NAV ----------*/
 header nav {
@@ -70,6 +77,7 @@ header nav ul li a i {
 }
 /*---------- NAV ----------*/
 
+/*---------- BUTTONS ----------*/
 .myButton {
     width: 150px;
     display: block;
@@ -92,16 +100,9 @@ header nav ul li a i {
 .myButton:hover {
     background-color: #357ae8;
 }
+/*---------- BUTTONS ----------*/
 
-
-.container {
-    min-width: 296px;
-    max-width: 700px;
-    padding-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
+/*---------- RESPONSIVE ----------*/
 @media screen and (max-width: 800px) {
     #logo {
         margin-left: 7%;
@@ -124,3 +125,4 @@ header nav ul li a i {
         height: 50px;
     }
 }
+/*---------- RESPONSIVE ----------*/

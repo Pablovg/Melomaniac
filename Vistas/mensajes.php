@@ -1,6 +1,12 @@
 <?php 
     session_start();
     include('../Funcionalidad/cargar_usuario.php');
+
+    if ($usuario->getTipo() == "admin") {
+        header("Location: administrador.php");
+        exit;
+    }
+
     include('../Funcionalidad/cargar_mensajes.php');
 ?>
 
@@ -17,7 +23,7 @@
     <script>
         var currentPage = 'mensajes';
 
-        function showDiv(opt) {
+        function showDiv(opt) { //Múestra la div correspondiente y oculta el resto (current es para el borde azul)
 
             switch(opt) {
                 case 1:
@@ -70,7 +76,7 @@
             }
         }
 
-        function sendAll(opt) {
+        function sendAll(opt) { //Autocompletar TODOS y GRUPO
 
             switch(opt) {
                 case 1:
@@ -129,8 +135,7 @@
             </div>
 
             <div class="show" id="bandeja_de_entrada">
-                <?php 
-                    if (isset($recibidos) && count($recibidos) > 0) { ?>
+                <?php if (isset($recibidos) && count($recibidos) > 0) { //Si se cargó $recibidos y hay al menos hay un mensaje ?> 
 
                     <table cellspacing="0">
                         <thead>
@@ -142,7 +147,7 @@
                         </thead>
                         <tbody>
                             <?php
-                                foreach ($recibidos as $recibido) {
+                                foreach ($recibidos as $recibido) { //Muestra una tabla con los mensajes recibidos
                                     echo '
                                         <tr>
                                             <td class="border-right"><a href="mensajes.php?tipo=recibidos&id='.$recibido->getId().'"">'.$recibido->getAsunto().'</a></td>
@@ -166,7 +171,7 @@
 
             <div class="show" id="enviados">
                 <?php 
-                    if (isset($enviados) && count($enviados) > 0) { ?>
+                    if (isset($enviados) && count($enviados) > 0) { //Igual con $enviados ?>
 
                     <table cellspacing="0">
                         <thead>
@@ -178,7 +183,7 @@
                         </thead>
                         <tbody>
                             <?php 
-                                foreach ($enviados as $enviado) {
+                                foreach ($enviados as $enviado) { //Muestra una tabla con los mensajes enviados
                                     echo '
                                         <tr>
                                             <td class="border-right"><a href="mensajes.php?tipo=enviados&id='.$enviado->getId().'">'.$enviado->getAsunto().'</a></td>
@@ -201,8 +206,7 @@
             </div>
 
             <div class="show" id="grupo">
-                <?php 
-                    if (isset($grupos) && count($grupos) > 0) { ?>
+                <?php if (isset($grupos) && count($grupos) > 0) { //Y con $grupos también?>
 
                     <table cellspacing="0">
                         <thead>
@@ -214,7 +218,7 @@
                         </thead>
                         <tbody>
                             <?php 
-                                foreach ($grupos as $group) {
+                                foreach ($grupos as $group) { //Muestra una tabla con los mensajes grupales
                                     echo '
                                         <tr>
                                             <td class="border-right"><a href="mensajes.php?tipo=grupos&id='.$group->getId().'">'.$group->getAsunto().'</a></td>
@@ -236,7 +240,9 @@
                 ?>
             </div>
 
-            <?php
+            <?php 
+            //Dependiendo del tipo de mensaje (recibido, enviado o grupal), múestra el mensaje de ese array con el id del mensaje seleccionado
+            
                 if (isset($_REQUEST["tipo"])) {
                     echo '<div id="leer">';
                     if ($_REQUEST["tipo"] == "recibidos") {

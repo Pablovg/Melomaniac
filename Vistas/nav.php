@@ -9,7 +9,10 @@
     </nav>
 </header>
 
-<script>
+<script> 
+
+    //Según en que página estemos, múestra el borde azul como si estuviera activa
+    //En las vistas se encuentra en el head como currentPage
 
     if (currentPage == "inicio") {
         $("header nav ul li#inicio").addClass("active");

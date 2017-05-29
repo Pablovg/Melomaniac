@@ -1,8 +1,10 @@
-<?php 
-	if (isset($_SESSION['login']) && $_SESSION['login']) {
+<?php
+	if (isset($_SESSION['login']) && $_SESSION['login']) { //Solo si el usuario esta logeado
     	
-    	include('../Modelos/usuario.php');
+    	include('../Modelos/usuario.php'); //Esto es un objeto de un usuario con sus valores y funciones
     	include('conectar.php');
+
+    	//Cargamos el usuario que correspnda con el correo al loguearse con todos sus valores
 
 		$email     = $_SESSION['correo'];
 		

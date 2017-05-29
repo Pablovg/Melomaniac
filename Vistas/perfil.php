@@ -1,6 +1,11 @@
 <?php 
     session_start();
-    include('../Funcionalidad/cargar_usuario.php'); 
+    include('../Funcionalidad/cargar_usuario.php');
+
+    if ($usuario->getTipo() == "admin") {
+        header("Location: administrador.php");
+        exit;
+    }
 ?>
 <html lang="es">
 <head>
@@ -53,7 +58,7 @@
                         echo 'Fecha de nacimiento';
                     }
                  ?></li>
-                 <li><i class="fa fa-users"></i><?php
+                 <li><i class="fa fa-music"></i><?php
                     if (!is_null($usuario->getGenero())) {
                         echo $usuario->getGenero();
                     }
@@ -62,7 +67,7 @@
                         echo 'Elige tu género musical favorito';
                     }
                  ?></li>
-                 <li><i class="fa fa-music"></i><?php
+                 <li><i class="fa fa-users"></i><?php
                     if (!is_null($usuario->getGrupo())) {
                         echo $usuario->getGrupo();
                     }

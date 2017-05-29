@@ -47,34 +47,6 @@ class Mensaje {
 	public function getGrupo() {
 		return $this->grupo;
 	}
-
-	public function setId($id) {
-		$this->id = $id;
-	}
-
-	public function setAsunto($asunto) {
-		$this->asunto = $asunto; 
-	}
-
-	public function setMensaje($mensaje) {
-		$this->mensaje = $mensaje;
-	}
-
-	public function setFecha($fecha) {
-		$this->fecha = $fecha;
-	}
-
-	public function setEmisor($emisor) {
-		$this->emisor = $emisor;
-	}
-
-	public function setReceptor($receptor) {
-		$this->receptor = $receptor;
-	}
-
-	public function setGrupo($grupo) {
-		$this->grupo = $grupo;
-	}
 }
 
 ?>

@@ -1,4 +1,13 @@
-<?php session_start(); ?>
+<?php 
+    session_start(); 
+    include('../Funcionalidad/cargar_usuario.php'); //Cargar el objeto usuario
+
+    if ($usuario->getTipo() == "admin") { //Si se loguea como admin mándalo a la página de admin
+        header("Location: administrador.php");
+        exit;
+    }
+?>
+
 <html lang="es">
 <head>
     <meta charset="utf-8" />
@@ -31,16 +40,21 @@
                     <label> Género musical favorito:</label>
                     <select name="genero" form="settings">
                         <option value="none"></option>
-                        <option value="Rock">Rock</option>
-                        <option value="rap">Rap</option>
-                        <option value="pop">Pop</option>
-                        <option value="electronica">Electrónica</option>
-                        <option value="jazz">Jazz</option>
-                        <option value="heavy">Heavy</option>
-                        <option value="punk">Punk</option>
-                        <option value="techno">Techno</option>
-                        <option value="trap">Trap</option>
-                        <option value="indie">Indie</option>
+                        <?php //Sé que no debeían haber queries en las vistas, pero parecía mas eficiente así
+                            include ('../Funcionalidad/conectar.php');
+
+                            //Coge la enum de los géneros musicales existentes
+                            $type = $mysqli->query("SHOW COLUMNS FROM usuarios WHERE Field = 'genero_musical'")->fetch_array(MYSQLI_ASSOC)['Type'];
+                            preg_match("/^enum\(\'(.*)\'\)$/", $type, $matches);
+                            $enum = explode("','", $matches[1]);
+
+                            //Muestra un alista de los géneros musicales
+                            foreach ($enum as $field) {
+                                echo '<option value="'.$field.'">'.$field.'</option>';
+                            }
+
+                            $mysqli->close();
+                        ?>
                     </select>
                 </div>
 

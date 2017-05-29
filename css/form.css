@@ -23,7 +23,7 @@
     border-bottom: 1px solid rgb(220, 220, 220);
 }
 
-.card input[type=email], input[type=password] {
+.card input[type=email], input[type=password], input[type=text] {
     height: 40px;
     font-size: 16px;
     width: 100%;
@@ -55,6 +55,10 @@
 
 .card input[type=submit]:hover {
     background-color: #357ae8;
+}
+
+.card a#añadir {
+    margin-top: 40px;
 }
 
 .help {
