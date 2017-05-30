@@ -24,5 +24,5 @@
 	}
 
     header("Location: ../Vistas/inicio.php");
-    exit;
+    exit();
 ?>

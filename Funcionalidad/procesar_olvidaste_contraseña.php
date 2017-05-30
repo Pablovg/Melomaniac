@@ -1,4 +1,4 @@
-<?php 
+<?php session_start();
 	if (!empty($_REQUEST["recuperar_contraseña"])) { //Si se ha introducido un correo para recuperar la contraseña...
 
 		include('conectar.php');
@@ -29,7 +29,7 @@
 	}
 
 	header("Location: ../Vistas/login.php");
-    exit;
+    exit();
 ?>
 
 

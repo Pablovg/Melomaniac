@@ -1,12 +1,12 @@
-<?php 
-    session_start();
+<?php session_start();
     include('../Funcionalidad/cargar_usuario.php');
 
-    if ($usuario->getTipo() == "admin") {
+    if (!is_null($usuario) && $usuario->getTipo() == "admin") {
         header("Location: administrador.php");
         exit;
     }
 ?>
+
 <html lang="es">
 <head>
     <meta charset="utf-8" />

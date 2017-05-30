@@ -1,10 +1,9 @@
-<?php 
-    session_start(); 
+<?php session_start(); 
     include('../Funcionalidad/cargar_usuario.php'); //Cargar el objeto usuario
 
-    if ($usuario->getTipo() == "admin") { //Si se loguea como admin mándalo a la página de admin
+    if (!is_null($usuario) && $usuario->getTipo() == "admin") { //Si se loguea como admin mándalo a la página de admin
         header("Location: administrador.php");
-        exit;
+        exit();
     }
 ?>
 

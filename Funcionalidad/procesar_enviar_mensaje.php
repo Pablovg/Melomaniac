@@ -60,6 +60,6 @@
 
 	$mysqli->close();
     header("Location: ../Vistas/mensajes.php");
-    exit;
+    exit();
 
  ?>

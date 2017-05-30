@@ -54,5 +54,5 @@
     $mysqli->close(); //Cerramos la conexión con la BD
     header("Location: ../Vistas/administrador.php"); //Vuelve a la vista de administrador 
     //(Aquí un poco de ajax para comprobar si se ha añadido o no el grupo hubiera estado bien)
-    exit;
+    exit();
  ?>

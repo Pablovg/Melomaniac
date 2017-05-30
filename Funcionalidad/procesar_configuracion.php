@@ -72,5 +72,5 @@
 
     $mysqli->close();
     header("Location: ../Vistas/perfil.php");
-    exit;
+    exit();
 ?>

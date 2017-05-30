@@ -2,14 +2,13 @@
     session_start();
     include('../Funcionalidad/cargar_usuario.php');
 
-    if ($usuario->getTipo() == "admin") {
+    if (!is_null($usuario) && $usuario->getTipo() == "admin") {
         header("Location: administrador.php");
         exit;
     }
 
     include('../Funcionalidad/cargar_mensajes.php');
 ?>
-
 
 <html lang="es">
 
@@ -94,9 +93,7 @@
 
 <body>
 
-    <?php 
-        include('nav.php');
-    ?>
+    <?php include('nav.php'); ?>
 
     <div class="content">
         <nav id="mensajes">
